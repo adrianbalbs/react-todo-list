@@ -12,12 +12,12 @@ export default function TodoApp() {
 
     function handleAddNewTodo(newTodo: string) {
         if (newTodo.length != 0) {
-            setUncompletedTodos([{ id: counter, description: newTodo, completed: false}, ...uncompletedTodos]);
+            setUncompletedTodos([{ id: counter, description: newTodo, completed: false }, ...uncompletedTodos]);
             setCounter(counter + 1);
         }
     }
 
-    return(
+    return (
         <>
             <label>
                 Add todo:{' '}
@@ -30,13 +30,13 @@ export default function TodoApp() {
                     Add
                 </button>
             </label>
-            <NewTodos 
+            <NewTodos
                 newTodos={uncompletedTodos}
                 completedTodos={completedTodos}
                 setUncompletedTodos={setUncompletedTodos}
                 setCompletedTodos={setCompletedTodos}
             />
-            <CompletedTodos completedTodos={completedTodos}/>
+            <CompletedTodos completedTodos={completedTodos} />
         </>
-        )
+    )
 }

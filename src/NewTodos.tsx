@@ -2,22 +2,22 @@ import { Dispatch, SetStateAction } from "react";
 import { Todo } from "./types";
 
 export default function NewTodos(
-    { 
-        newTodos, 
-        completedTodos,
-        setUncompletedTodos, 
-        setCompletedTodos 
-    }: 
     {
-        newTodos: Todo[],
-        completedTodos: Todo[],
-        setUncompletedTodos: Dispatch<SetStateAction<Todo[]>>, 
-        setCompletedTodos: Dispatch<SetStateAction<Todo[]>> 
-    }) {
+        newTodos,
+        completedTodos,
+        setUncompletedTodos,
+        setCompletedTodos
+    }:
+        {
+            newTodos: Todo[],
+            completedTodos: Todo[],
+            setUncompletedTodos: Dispatch<SetStateAction<Todo[]>>,
+            setCompletedTodos: Dispatch<SetStateAction<Todo[]>>
+        }) {
     return (
         <>
             <h2>New</h2>
-            <NewTodosList 
+            <NewTodosList
                 newTodos={newTodos}
                 completedTodos={completedTodos}
                 setUncompletedTodos={setUncompletedTodos}
@@ -28,20 +28,20 @@ export default function NewTodos(
 }
 
 function NewTodosList(
-    { 
+    {
         newTodos,
         completedTodos,
-        setUncompletedTodos, 
-        setCompletedTodos 
-    }: 
-    {
-        newTodos: Todo[],
-        completedTodos: Todo[],
-        setUncompletedTodos: Dispatch<SetStateAction<Todo[]>>, 
-        setCompletedTodos: Dispatch<SetStateAction<Todo[]>> 
-    }) {
+        setUncompletedTodos,
+        setCompletedTodos
+    }:
+        {
+            newTodos: Todo[],
+            completedTodos: Todo[],
+            setUncompletedTodos: Dispatch<SetStateAction<Todo[]>>,
+            setCompletedTodos: Dispatch<SetStateAction<Todo[]>>
+        }) {
 
-    function handleRemoveCompletedTodo(id:number) {
+    function handleRemoveCompletedTodo(id: number) {
         setUncompletedTodos(newTodos.filter(nt => id !== nt.id));
     }
 
@@ -56,8 +56,8 @@ function NewTodosList(
                     <li key={todo.id}>
                         <label>
                             {todo.description}{' '}
-                            <input 
-                                type="checkbox" 
+                            <input
+                                type="checkbox"
                                 onClick={() => {
                                     handleRemoveCompletedTodo(todo.id);
                                     handleAddNewCompletedTodo(todo);
@@ -65,8 +65,8 @@ function NewTodosList(
                             />
                         </label>
                     </li>);
-                    }
-                )
+            }
+            )
             }
         </ul>
     )
